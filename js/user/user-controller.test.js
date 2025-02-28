@@ -29,23 +29,23 @@ test('remove user that is not in the userController', () => {
   userController.remove(user);
   expect(userController.getUsers()).not.toContain(user);
 });
-//Prueba 1: Encontrar usuario por email existente
+//Prueba: Encontrar usuario por email existente
 test('find user by email', () => {
   let user = new User(1234, "Santiago", "santiago@generation.org");
   userController.add(user);
   expect(userController.findByEmail("santiago@generation.org")).toEqual(user);
 });
-//Prueba 2: No encontrar usuario por email inexistente
+//Prueba: No encontrar usuario por email inexistente
 test('find user by non-existing email', () => {
   expect(userController.findByEmail("nonexistent@example.com")).toBeUndefined();
 });
-//Prueba 1: Encontrar usuario por ID existente
+//Prueba: Encontrar usuario por ID existente
 test('find user by ID', () => {
   let user = new User(1234, "Santiago", "santiago@generation.org");
   userController.add(user);
   expect(userController.findById(1234)).toEqual(user);
 });
-//Prueba 2: No encontrar usuario por ID inexistente
+//Prueba: No encontrar usuario por ID inexistente
 test('find user by non-existing ID', () => {
   expect(userController.findById(9999)).toBeUndefined();
 });
